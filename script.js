@@ -14,24 +14,25 @@ const database = knex({
     // version: '15.1',
     
     connection: {  
-        host : "sql2.freemysqlhosting.net",
-        user : "sql2377541",
-        password : "rK2*bP6*",
-        database : "sql2377541",
+      host : "sql301.unaux.com",
+        user : "unaux_27220539",
+        password : "sxc25f8u55d4r",
+        database : "unaux_27220539_lens",
         timezone: 'utc'
-}
+    }
   });  
  
   // Server: 
   // Name: 
   // Username: 
   // Password: 
-  // Port number: 3306
-  // host : "sql301.unaux.com",
-  //       user : "unaux_27220539",
-  //       password : "sxc25f8u55d4r",
-  //       database : "unaux_27220539_lens",
-  //       timezone: 'utc'
+  // Port number: 3306  host : "sql2.freemysqlhosting.net",
+//         user : "sql2377541",
+//         password : "rK2*bP6*",
+//         database : "sql2377541",
+//         timezone: 'utc'
+// }
+  
 app.get("/",(req,res)=>{
     res.send("hello world")
 })
