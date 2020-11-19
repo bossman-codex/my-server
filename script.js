@@ -2,12 +2,12 @@ const express = require("express")
 const Bodyparser = require("body-parser")
 const knex = require("knex")
 const bcrypt= require("bcrypt-nodejs")
-
+const cors = require("cors")
 
 const app = express()
 app.use(Bodyparser.json())
 app.use(Bodyparser.urlencoded({ extended: false }))
-
+app.use(cors())
 
 const database = knex({
     client: 'mysql',
