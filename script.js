@@ -82,6 +82,9 @@ app.post("/user_login", (req,res)=>{
    
 app.post('/register',(req,res) =>{
     const{fullname,email,phone,country,currency,occupation,password} = req.body
+    if (!fullname || !email|| !phone|| !country ||!currency||!occupation||!password) {
+      return res.status(400).json("incorrect form submission")
+  }
     const hash = bcrypt.hashSync(password)
     database.transaction(trx =>{
         trx.insert({
@@ -144,7 +147,9 @@ app.post('/register2',(req,res) =>{
 
 app.post("/invest", (req,res)=>{
     const {email,investdate,amount,period,expamount} = req.body
-    
+    if (!email || !investdate|| !amount|| !period) {
+      return res.status(400).json("incorrect form submission")
+  }
     function addDays(date, days) {
         var result = new Date(date);
         result.setDate(result.getDate() + days);
