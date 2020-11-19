@@ -14,7 +14,7 @@ const database = knex({
     // version: '15.1',
     
     connection: {  
-      host : "sql301.unaux.com",
+      host : "sql301.byetcluster.com",
         user : "unaux_27220539",
         password : "sxc25f8u55d4r",
         database : "unaux_27220539_lens",
