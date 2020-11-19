@@ -2,7 +2,7 @@
   "name": "my-server",
   "version": "1.0.0",
   "description": "",
-  "main": "Node.js",
+  "main": "script.js",
   "scripts": {
     "start": "nodemon"
   },
