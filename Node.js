@@ -24,8 +24,7 @@ const database = knex({
 
 
 
-app.get("/" ,(req,res)=>{
-  
+app.get("/",(req,res)=>{
     res.send("hello world")
 })
 
@@ -318,4 +317,4 @@ app.post("/dash",(req,res)=>{
              .catch(err=>{res.status(400).json(err)})
         })
 
-app.listen(process.env.PORT ||3003)   
+app.listen(process.env.PORT || 3003)   
