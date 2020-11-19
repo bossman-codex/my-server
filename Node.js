@@ -249,7 +249,7 @@ app.post("/dash",(req,res)=>{
              .catch(err=>{res.status(400).json(err)})
         })
 
-        
+
         app.post("/edit" ,(req,res)=>{
             const {email,amount,period,expamount} = req.body
 
@@ -318,4 +318,4 @@ app.post("/dash",(req,res)=>{
              .catch(err=>{res.status(400).json(err)})
         })
 
-app.listen(3003)   
+app.listen(process.env.PORT ||3003)   
