@@ -14,15 +14,14 @@ const database = knex({
     // version: '15.1',
     
     connection: {  
-        host : "localhost",
-        user : "root",
-        password : "",
-        database : "investment",
+        host : "sql301.unaux.com",
+        user : "unaux_27220539",
+        password : "sxc25f8u55d4r",
+        database : "unaux_27220539_lens",
         timezone: 'utc'
 }
   });  
-
-
+ 
 
 app.get("/",(req,res)=>{
     res.send("hello world")
