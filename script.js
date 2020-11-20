@@ -361,6 +361,10 @@ app.post("/dash",(req,res)=>{
             MaturityDate:maturedate
           })
           .del()
+          .then(user =>{ 
+            res.status(200).json("success")
+            }) 
+            .catch(err=> res.status(400).json(err))
         })
 
 app.listen(process.env.PORT || 3003)   
