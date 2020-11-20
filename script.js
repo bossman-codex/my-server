@@ -245,13 +245,29 @@ app.post("/dash",(req,res)=>{
     
 
         app.post("/approve" ,(req,res)=>{
+          const {email,amount,date,period,expamount,maturedate} =req.body
+          
             database('investmentdetails')
-            .where('Email', req.body.email)
+            .where({
+              Email: email,
+              DateInvested: date,
+              AmountInvested: amount,
+              InvestmentPeriod :period,
+              ExpectedAmount : expamount,
+              MaturityDate:maturedate
+            }
             .then(user=>{
-                const isCorrect = req.body.email === user[0].Email
+                const isCorrect = email === user[0].Email
                 if(isCorrect){
               database("investmentdetails") 
-              .where("Email", "=", req.body.email)     
+              .where({
+                Email: email,
+                DateInvested: date,
+                AmountInvested: amount,
+                InvestmentPeriod :period,
+                ExpectedAmount : expamount,
+                MaturityDate:maturedate
+              })     
               .update({  
             InvestmentStatus: "Approved"
            })
