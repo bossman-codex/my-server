@@ -118,6 +118,9 @@ app.post('/register',(req,res) =>{
 
 app.post('/register2',(req,res) =>{
     const{fullname,email,phone,password} = req.body
+    if(!fullname || !email|| !phone||!password) {
+      return res.status(400).json("incorrect form submission")
+    }
     const hash = bcrypt.hashSync(password)
     database.transaction(trx =>{
         trx.insert({
@@ -125,7 +128,7 @@ app.post('/register2',(req,res) =>{
             Email:email,
             PhoneNumber:phone
         })
-        .into('user_info')
+        .into('admin')
         .then(user =>{ 
                 res.status(200).json("success")
                 }) 
