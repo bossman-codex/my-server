@@ -236,7 +236,7 @@ app.post("/dash",(req,res)=>{
           }).select('*')
           .then(user =>{ 
               console.log(user)
-            res.status(200).json(user[0])
+            res.status(200).json(user)
             })
         .catch(err=>{
             res.status(400).json(err)
