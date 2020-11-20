@@ -255,7 +255,7 @@ app.post("/dash",(req,res)=>{
               InvestmentPeriod :period,
               ExpectedAmount : expamount,
               MaturityDate:maturedate
-            }
+            })
             .then(user=>{
                 const isCorrect = email === user[0].Email
                 if(isCorrect){
