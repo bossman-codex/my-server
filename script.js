@@ -349,4 +349,18 @@ app.post("/dash",(req,res)=>{
              .catch(err=>{res.status(400).json(err)})
         })
 
+        app.post("/delete",(req,res)=>{
+          const {email,amount,date,period,expamount,maturedate} =req.body
+          database('investmentdetails')
+          .where({
+            Email: email,
+            DateInvested: date,
+            AmountInvested: amount,
+            InvestmentPeriod :period,
+            ExpectedAmount : expamount,
+            MaturityDate:maturedate
+          })
+          .del()
+        })
+
 app.listen(process.env.PORT || 3003)   
