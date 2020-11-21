@@ -150,9 +150,10 @@ app.post('/register2',(req,res) =>{
 
 app.post("/invest", (req,res)=>{
     const {email,investdate,amount,period,expamount,periodinvest} = req.body
-    if (!email || !investdate|| !amount|| !period||!expamount||periodinvest) {
-      return res.status(400).json("incorrect form submission")
-  }
+
+  //   if (!email||!investdate||!amount||!period||!expamount||!periodinvest) {
+  //     return res.status(400).json("incorrect form submission")
+  // }
    
       function addDays(date, days) {
         var result = new Date(date);
