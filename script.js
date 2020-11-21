@@ -153,25 +153,20 @@ app.post("/invest", (req,res)=>{
     if (!email || !investdate|| !amount|| !period) {
       return res.status(400).json("incorrect form submission")
   }
-    function addDays(date, days) {
-        var result = new Date(date);
-        result.setDate(result.getDate() + days);
-        return result;
-      }
-      
-      const money =() =>{
+   
+      const money =  () =>{
         let cash
         if (period === "30") {
-         cash=((0.1* parseFloat(amount))+  parseFloat(amount))
+         cash=((0.1* parseFloat(amount)) +  (parseFloat(amount)) )
        }
        if (period === "60") {
-         cash=((0.3* parseInt(amount))+ parseInt(amount))
+         cash=((0.3* parseInt(amount)) + (parseInt(amount)))
        }
        if (period === "180") {
-         cash=((0.5*parseFloat(amount))+  parseFloat(amount))
+         cash=((0.5*parseFloat(amount)) +  (parseFloat(amount)))
        }
        if (period === "365") {
-         cash=((1.5*parseFloat(amount))+  parseFloat(amount))
+         cash=((1.5*parseFloat(amount)) +  (parseFloat(amount)))
        }
        return cash
        }
@@ -191,7 +186,14 @@ app.post("/invest", (req,res)=>{
             times="1Year"
         }
         return times
+      } 
+      
+      function addDays(date, days) {
+        var result = new Date(date);
+        result.setDate(result.getDate() + days);
+        return result;
       }
+      
 
     database('investmentdetails')
     .insert({
