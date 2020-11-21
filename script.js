@@ -149,45 +149,11 @@ app.post('/register2',(req,res) =>{
 })
 
 app.post("/invest", (req,res)=>{
-    const {email,investdate,amount,period,expamount} = req.body
-    if (!email || !investdate|| !amount|| !period) {
+    const {email,investdate,amount,period,expamount,periodinvest} = req.body
+    if (!email || !investdate|| !amount|| !period||!expamount||periodinvest) {
       return res.status(400).json("incorrect form submission")
   }
    
-      const money =  () =>{
-        let cash
-        if (period === "30") {
-         cash=(0.1* parseFloat(amount)) +  (parseFloat(amount)) 
-       }
-       if (period === "60") {
-         cash=(0.3* parseInt(amount)) + (parseInt(amount))
-       }
-       if (period === "180") {
-         cash=(0.5*parseFloat(amount)) +  (parseFloat(amount))
-       }
-       if (period === "365") {
-         cash=(1.5*parseFloat(amount)) +  (parseFloat(amount))
-       }
-       return cash
-       }
-      
-      const Time =()=>{
-          let times
-          if (period === "30") {
-            times="30Days"
-          }
-          if (period === "90") {
-             times="3Months" 
-        }
-        if (period === "180") {
-              times="6Months"
-        }
-        if (period==="365") {
-            times="1Year"
-        }
-        return times
-      } 
-
       function addDays(date, days) {
         var result = new Date(date);
         result.setDate(result.getDate() + days);
@@ -200,8 +166,8 @@ app.post("/invest", (req,res)=>{
         Email: email,
         DateInvested: investdate,
         AmountInvested: amount,
-        InvestmentPeriod : Time(),
-        ExpectedAmount : money(),
+        InvestmentPeriod : periodinvest,
+        ExpectedAmount : expamount,
         MaturityDate:addDays(investdate,parseInt(period)),
         InvestmentStatus: "Pending"
     })
