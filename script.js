@@ -157,16 +157,16 @@ app.post("/invest", (req,res)=>{
       const money =  () =>{
         let cash
         if (period === "30") {
-         cash=((0.1* parseFloat(amount)) +  (parseFloat(amount)) )
+         cash=(0.1* parseFloat(amount)) +  (parseFloat(amount)) 
        }
        if (period === "60") {
-         cash=((0.3* parseInt(amount)) + (parseInt(amount)))
+         cash=(0.3* parseInt(amount)) + (parseInt(amount))
        }
        if (period === "180") {
-         cash=((0.5*parseFloat(amount)) +  (parseFloat(amount)))
+         cash=(0.5*parseFloat(amount)) +  (parseFloat(amount))
        }
        if (period === "365") {
-         cash=((1.5*parseFloat(amount)) +  (parseFloat(amount)))
+         cash=(1.5*parseFloat(amount)) +  (parseFloat(amount))
        }
        return cash
        }
@@ -187,7 +187,7 @@ app.post("/invest", (req,res)=>{
         }
         return times
       } 
-      
+
       function addDays(date, days) {
         var result = new Date(date);
         result.setDate(result.getDate() + days);
