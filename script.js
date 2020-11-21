@@ -336,4 +336,23 @@ app.post("/dash",(req,res)=>{
             .catch(err=> res.status(400).json(err))
         })
 
+        app.post("/deleteuser", (req, res) =>{
+          const {email} = req.body 
+          database('investmentdetails')
+         .where("Email","=", email)
+         .then(user=>{
+          const isCorrect = email === user[0].Email
+          if(isCorrect){
+      database.raw(
+        "DELETE user_details ,user_info FROM user_details INNER JOIN user_info INNER JOIN investmentdetails WHERE user_details.Email = user_info.Email AND user_info.Email=investmentdetails.Email AND user_details.Email =?", email) 
+                  .then(user =>{ 
+                  res.status(200).json("user")
+                  }) 
+                  .catch(err=> res.status(400).json(err))  
+                
+              } 
+          })
+          .catch(err=> res.status(400).json("errorname"))  
+      })
+
 app.listen(process.env.PORT || 3003)   
